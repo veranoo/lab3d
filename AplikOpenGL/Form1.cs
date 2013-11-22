@@ -53,18 +53,6 @@ namespace AplikOpenGL
 
             gl.End();
 
-            //Rysowanie postaci
-
-            gl.Begin(OpenGL.QUADS);
-
-            gl.Color(1.0, 1.0, 0.0);
-
-
-
-
-
-            gl.End();
-
 
 
         }
