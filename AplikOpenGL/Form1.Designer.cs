@@ -28,31 +28,34 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.glContr = new SharpGL.OpenGLCtrl();
-			this.SuspendLayout();
-			// 
-			// glContr
-			// 
-			this.glContr.CausesValidation = false;
-			this.glContr.DrawRenderTime = false;
-			this.glContr.FrameRate = 20F;
-			this.glContr.GDIEnabled = false;
-			this.glContr.Location = new System.Drawing.Point(8, 8);
-			this.glContr.Name = "glContr";
-			this.glContr.Size = new System.Drawing.Size(500, 500);
-			this.glContr.TabIndex = 0;
-			this.glContr.OpenGLDraw += new System.Windows.Forms.PaintEventHandler(this.openGLControl1_OpenGLDraw);
-			// 
-			// Form1
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(520, 525);
-			this.Controls.Add(this.glContr);
-			this.Name = "Form1";
-			this.Text = "Form1";
-			this.Load += new System.EventHandler(this.Form1_Load);
-			this.ResumeLayout(false);
+            this.glContr = new SharpGL.OpenGLCtrl();
+            this.SuspendLayout();
+            // 
+            // glContr
+            // 
+            this.glContr.AutoSize = true;
+            this.glContr.CausesValidation = false;
+            this.glContr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.glContr.DrawRenderTime = false;
+            this.glContr.FrameRate = 20F;
+            this.glContr.GDIEnabled = false;
+            this.glContr.Location = new System.Drawing.Point(0, 0);
+            this.glContr.Name = "glContr";
+            this.glContr.Size = new System.Drawing.Size(520, 525);
+            this.glContr.TabIndex = 0;
+            this.glContr.OpenGLDraw += new System.Windows.Forms.PaintEventHandler(this.openGLControl1_OpenGLDraw);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(520, 525);
+            this.Controls.Add(this.glContr);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 
