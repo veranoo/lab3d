@@ -1,6 +1,6 @@
 ﻿namespace AplikOpenGL
 {
-	partial class Form1
+	partial class Labirynt3D
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -45,15 +45,15 @@
             this.glContr.TabIndex = 0;
             this.glContr.OpenGLDraw += new System.Windows.Forms.PaintEventHandler(this.openGLControl1_OpenGLDraw);
             // 
-            // Form1
+            // Labirynt3D
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(520, 525);
             this.Controls.Add(this.glContr);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "Labirynt3D";
+            this.Text = "Labirynt3D";
+            this.Load += new System.EventHandler(this.Labirynt3D_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

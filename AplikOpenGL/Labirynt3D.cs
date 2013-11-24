@@ -11,23 +11,24 @@ using SharpGL;
 
 namespace AplikOpenGL
 {
-    public partial class Form1 : Form
+    public partial class Labirynt3D : Form
     {
-        public Form1()
+        public Labirynt3D()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Labirynt3D_Load(object sender, EventArgs e)
         {
             //this.glContr.OpenGLDraw += new System.Windows.Forms.PaintEventHandler(this.openGLControl1_OpenGLDraw);			
         }
-        double x = 0, y = 5;
+        double x = 12.5, y = 10.5;
+        double r = 0.15;
         int[,] s = {
                        {0,0,0,14},{0,15,15,15},{15,1,15,15},{0,0,15,0}, //kwadrat labiryntu
                        //Poziome ściany
                        {1,1,2,1},{5,1,8,1},{12,1,15,1},
-                       {0,2,1,2},{3,2,4,2},{7,2,9,2},{10,2,12,2},{13,2,14,2},
+                       {0,2,1,2},{3,2,5,2},{7,2,9,2},{10,2,12,2},{13,2,14,2},
                        {1,3,4,3},{6,3,8,3},{9,3,14,3},
                        {1,4,2,4},{5,4,6,4},{7,4,9,4},
                        {2,5,5,5},{6,5,9,5},{10,5,14,5},
@@ -81,10 +82,28 @@ namespace AplikOpenGL
                 gl.Vertex(s[i, 2], s[i, 3]); // koniec
             }
 
+            //Rysowanie punktu
+
+            gl.Begin(OpenGL.QUADS);
+            gl.Color(0.5, 0.5, 1.0);
+
+            //AB
+            gl.Vertex(x - r, y - r);
+            gl.Vertex(x - r, y + r);
+
+            //BC
+            gl.Vertex(x - r, y + r);
+            gl.Vertex(x + r, y + r);
+
+            //CD
+            gl.Vertex(x + r, y + r);
+            gl.Vertex(x + r, y - r);
+
+            //AD
+            gl.Vertex(x - r, y - r);
+            gl.Vertex(x + r, y - r);
 
             gl.End();
-
-
 
         }
     }
