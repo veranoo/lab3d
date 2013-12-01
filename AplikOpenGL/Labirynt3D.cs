@@ -22,8 +22,8 @@ namespace AplikOpenGL
         {
             //this.glContr.OpenGLDraw += new System.Windows.Forms.PaintEventHandler(this.openGLControl1_OpenGLDraw);			
         }
-        double x = 12.5, y = 10.5;
-        double r = 0.15;
+        double x = 0.5, y = 0.5;
+        double r = 0.2;
         int[,] s = {
                        {0,0,0,14},{0,15,15,15},{15,1,15,15},{0,0,15,0}, //kwadrat labiryntu
                        //Poziome ściany
@@ -105,6 +105,80 @@ namespace AplikOpenGL
 
             gl.End();
 
+            if (kw)
+            {
+                y += 0.1;
+            }
+            if (ks)
+            {
+                y -= 0.1;
+            }
+            if (ka)
+            {
+                x -= 0.1;
+            }
+            if (kd)
+            {
+                x += 0.1;
+            }
+
+        }
+
+        private void gl(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void glContr_keyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void glContr_keyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        bool kw = false, ka = false, ks = false, kd = false;
+
+        private void wcisniecie_klawisza(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.W)
+            {
+                kw = true;
+            }
+            if (e.KeyCode == Keys.S)
+            {
+                ks = true;
+            }
+            if (e.KeyCode == Keys.A)
+            {
+                ka = true;
+            }
+            if (e.KeyCode == Keys.D)
+            {
+                kd = true;
+            }
+        }
+
+        private void opuszczenie_klawisza(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.W)
+            {
+                kw = false;
+            }
+            if (e.KeyCode == Keys.S)
+            {
+                ks = false;
+            }
+            if (e.KeyCode == Keys.A)
+            {
+                ka = false;
+            }
+            if (e.KeyCode == Keys.D)
+            {
+                kd = false;
+            }
         }
     }
 }

@@ -44,6 +44,8 @@
             this.glContr.Size = new System.Drawing.Size(520, 525);
             this.glContr.TabIndex = 0;
             this.glContr.OpenGLDraw += new System.Windows.Forms.PaintEventHandler(this.openGLControl1_OpenGLDraw);
+            this.glContr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.wcisniecie_klawisza);
+            this.glContr.KeyUp += new System.Windows.Forms.KeyEventHandler(this.opuszczenie_klawisza);
             // 
             // Labirynt3D
             // 
@@ -54,6 +56,8 @@
             this.Name = "Labirynt3D";
             this.Text = "Labirynt3D";
             this.Load += new System.EventHandler(this.Labirynt3D_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gl);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.glContr_keyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
