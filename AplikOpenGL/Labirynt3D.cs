@@ -105,6 +105,8 @@ namespace AplikOpenGL
 
             gl.End();
 
+            double sx = x, sy = y;
+
             if (kw)
             {
                 y += 0.1;
@@ -121,6 +123,69 @@ namespace AplikOpenGL
             {
                 x += 0.1;
             }
+            
+            double g = r+0.1;
+
+            for (int i = 0; i < s.GetLength(0); i++)
+            {
+                if (s[i, 0] == s[i, 2]) // ściana pionowa
+                {
+                    if (y + g < s[i, 1] || y - g > s[i, 3]) //y1,y2
+                        continue;
+                    if ((sx < s[i, 0] && x + g >= s[i, 0]) || (sx > s[i, 0] && x - g <= s[i, 0])) //x1
+                    {
+                        x = sx;
+                        y = sy;
+                        break;
+                    }
+                }
+                else // ściana pozioma
+                {
+
+                    if (s[i, 0] == s[i, 2]) // ściana pionowa
+                    {
+                        if (y + g < s[i, 1] || y - g > s[i, 3]) 
+                            continue;
+                        if ((sy < s[i, 1] && y + g >= s[i, 1]) || (sy > s[i, 1] && y - g <= s[i, 1]))
+                        {
+                            x = sx;
+                            y = sy;
+                            break;
+                        }
+                    }
+
+                }
+
+                if (s[i, 1] == s[i, 3]) // ściana pozioma
+                {
+                    if (x + g < s[i, 0] || x - g > s[i, 2]) //x1,x2
+                        continue;
+                    if ((sy < s[i, 1] && y + g >= s[i, 1]) || (sy > s[i, 1] && y - g <= s[i, 1])) //y1
+                    {
+                        x = sx;
+                        y = sy;
+                        break;
+                    }
+                }
+                else // ściana pionowa
+                {
+
+                    if (s[i, 1] == s[i, 3]) // ściana pozioma
+                    {
+                        if (x + g < s[i, 0] || x - g > s[i, 2])
+                            continue;
+                        if ((sx < s[i, 3] && x + g >= s[i, 3]) || (sx > s[i, 3] && x - g <= s[i, 3]))
+                        {
+                            x = sx;
+                            y = sy;
+                            break;
+                        }
+                    }
+
+                }
+
+            }
+
 
         }
 
