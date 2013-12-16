@@ -22,7 +22,7 @@ namespace AplikOpenGL
         {
             //this.glContr.OpenGLDraw += new System.Windows.Forms.PaintEventHandler(this.openGLControl1_OpenGLDraw);			
         }
-        double x = 0.5, y = 0.5;
+        double x = 1.5, y = 0.6, z = 5.5, k = 0;
         double r = 0.2;
         int[,] s = {
                        {0,0,0,14},{0,15,15,15},{15,1,15,15},{0,0,15,0}, //kwadrat labiryntu
@@ -65,10 +65,9 @@ namespace AplikOpenGL
         {
             //  Get the OpenGL object, just to clean up the code.
             SharpGL.OpenGL gl = this.glContr.OpenGL;
-
-            gl.Clear(OpenGL.COLOR_BUFFER_BIT | OpenGL.DEPTH_BUFFER_BIT);
             gl.LoadIdentity();					// Reset The View
-            gl.Translate(-7.5, -7.5, -20);
+            gl.LookAt(x, y, z, x + Math.Sin(k), y, z + Math.Cos(k), 0, 1, 0);
+            gl.Enable(OpenGL.DEPTH_TEST);
 
 
             //Rysowanie ścian
@@ -78,8 +77,27 @@ namespace AplikOpenGL
 
             for (int i = 0; i < s.GetLength(0); i++)
             {
-                gl.Vertex(s[i, 0], s[i, 1]); // poczatek
-                gl.Vertex(s[i, 2], s[i, 3]); // koniec
+                gl.Begin(OpenGL.QUADS);
+
+                gl.Color(0.3, 0.3, 0.3);
+                gl.Vertex(s[i, 0], 0, s[i, 1]);
+                gl.Vertex(s[i, 2], 0, s[i, 3]);
+
+                gl.Color(1.0, 1.0, 1.0);
+                gl.Vertex(s[i, 2], 1, s[i, 3]);
+                gl.Vertex(s[i, 0], 1, s[i, 1]);
+
+                //gl.End();
+
+                //gl.Begin(OpenGL.LINE_LOOP);
+
+                //gl.Color(0.3, 0.3, 0.3);
+                //gl.Vertex(s[i, 0], 0, s[i, 1]);
+                //gl.Vertex(s[i, 2], 0, s[i, 3]);
+                //gl.Vertex(s[i, 2], 1, s[i, 3]);
+                //gl.Vertex(s[i, 0], 1, s[i, 1]);
+
+                //gl.End();
             }
 
             //Rysowanie punktu
@@ -124,7 +142,7 @@ namespace AplikOpenGL
                 x += 0.1;
             }
             
-            double g = r+0.1;
+            double g = 0.1;
 
             for (int i = 0; i < s.GetLength(0); i++)
             {
